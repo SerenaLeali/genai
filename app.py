@@ -2,30 +2,45 @@
 import streamlit as st
 
 # Importing custom modules for different pages of the application
-import page_one
-import page_two
-import page_three
-import page_four
+from login import login_page
+import main_page
+import module_one
+import module_two
+import module_three
+import module_four
+import summary_page
+import impressum_page
 
+# Check if user is logged in
+if 'user_logged_in' not in st.session_state:
+    st.session_state['user_logged_in'] = False
 
-# Defining a dictionary that maps page names to their respective modules
-PAGES = {
-    "User Persona": page_one,   # Key-value pair for the first page
-    "Unternehmensdaten": page_two,   # Key-value pair for the second page
-    "Kennzahlen": page_three, # Key-value pair for the third page
-    "Datenübersicht": page_four, # Key-value pair for the fourth page
+# Route based on login status
+if not st.session_state['user_logged_in']:
+    login_page()
+else:
+    # Sidebar Navigation for Main Pages
+    PAGES = {
+        "Startseite": main_page,
+        "Modul 1": module_one, # Optional: Nicht in die Sidebar aufnehmen
+        "Modul 2": module_two,
+        "Modul 3": module_three,
+        "Modul 4": module_four,
+        "Datenübersicht": summary_page,
+        "Impressum": impressum_page,
+    }
 
-}
+    st.sidebar.title('Navigation')
+    selection = st.sidebar.radio("Seite auswählen", list(PAGES.keys()))
 
-# Creating a sidebar in the web application for navigation
-st.sidebar.title('Navigation')
+    # Dynamically execute selected page module
+    try:
+        PAGES[selection].app()
+    except KeyError:
+        st.error(f"Die Seite '{selection}' konnte nicht geladen werden. Stellen Sie sicher, dass die entsprechende Datei existiert.")
 
-# Adding a radio button widget to the sidebar for selecting a page
-# The keys of the PAGES dictionary are used as the options
-selection = st.sidebar.radio("Go to", list(PAGES.keys()))
-
-# Getting the module of the selected page
-page = PAGES[selection]
-
-# Calling the 'app' function from the selected page's module to display the page content
-page.app()
+    # Logout Button
+    if st.sidebar.button("Abmelden"):
+        st.session_state['user_logged_in'] = False
+        st.session_state.pop('company_profile', None)
+        st.experimental_rerun()
