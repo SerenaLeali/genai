@@ -8,6 +8,7 @@ import module_one
 import module_two
 import module_three
 import module_four
+import module_five
 import summary_page
 import impressum_page
 
@@ -22,10 +23,11 @@ else:
     # Sidebar Navigation for Main Pages
     PAGES = {
         "Startseite": main_page,
-        "Modul 1": module_one, # Optional: Nicht in die Sidebar aufnehmen
-        "Modul 2": module_two,
-        "Modul 3": module_three,
-        "Modul 4": module_four,
+        "Inhalte generieren": module_one, # Optional: Nicht in die Sidebar aufnehmen
+        "Anpassungsmöglichkeiten": module_two,
+        "Speicher- und Exportoptionen": module_three,
+        "Benutzerfreundliche Oberfläche": module_four,
+        "Direktes Posten": module_five
         "Datenübersicht": summary_page,
         "Impressum": impressum_page,
     }
