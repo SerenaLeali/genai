@@ -1,6 +1,6 @@
 import streamlit as st
 
 def app():
-    st.title("Modul 4")
-    st.write("Willkommen in Modul 4.")
+    st.title("Benutzerfreundliche Oberfläche")
+    st.write("Willkommen in Modul 4.- Eine intuitive UI mit Feedback-Funktion und Fehlerbehandlung.")
     
