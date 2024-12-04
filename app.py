@@ -7,8 +7,6 @@ import main_page
 import module_one
 import module_two
 import module_three
-import module_four
-import module_five
 import summary_page
 import impressum_page
 
@@ -23,11 +21,9 @@ else:
     # Sidebar Navigation for Main Pages
     PAGES = {
         "Startseite": main_page,
-        "Inhalte generieren": module_one, # Optional: Nicht in die Sidebar aufnehmen
-        "Anpassungsmöglichkeiten": module_two,
-        "Speicher- und Exportoptionen": module_three,
-        "Benutzerfreundliche Oberfläche": module_four,
-        "Direktes Posten": module_five
+        "M1: Content-Generierung": module_one, # Optional: Nicht in die Sidebar aufnehmen
+        "M2: Planung & Management": module_two,
+        "M3: Veröffentlichung & Export": module_three,
         "Datenübersicht": summary_page,
         "Impressum": impressum_page,
     }
@@ -40,9 +36,3 @@ else:
         PAGES[selection].app()
     except KeyError:
         st.error(f"Die Seite '{selection}' konnte nicht geladen werden. Stellen Sie sicher, dass die entsprechende Datei existiert.")
-
-    # Logout Button
-    if st.sidebar.button("Abmelden"):
-        st.session_state['user_logged_in'] = False
-        st.session_state.pop('company_profile', None)
-        st.experimental_rerun()

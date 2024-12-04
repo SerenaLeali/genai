@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st 
 
 def login_page():
     st.title("Anmeldung")
@@ -17,16 +17,8 @@ def login_page():
                 if username == "admin" and password == "password":  # Beispielhafte Loginprüfung
                     st.session_state['user_logged_in'] = True
                     st.success("Erfolgreich angemeldet!")
-                    st.query_params.update(rerun="true")
-
                 else:
                     st.error("Ungültige Anmeldedaten. Bitte versuchen Sie es erneut.")
     else:
         st.sidebar.success(f"Willkommen zurück, {st.session_state.get('username', 'Benutzer')}!")
-        if st.sidebar.button("Abmelden"):
-            st.session_state['user_logged_in'] = False
-            st.session_state.pop('company_profile', None)
-            st.query_params.update(rerun="true")
-
-
 

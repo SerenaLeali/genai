@@ -3,28 +3,19 @@ import streamlit as st
 
 def app():
     # Setting the title of the page
-    st.title('ContentCraft - Das Marketingtool für Ihr Unternehmen')
+    st.title("ContentCraft")
+    st.subheader("Das Marketingtool für Ihr Unternehmen")
 
-    # Beschreibung der Hauptfunktionen
     st.subheader("Was bietet ContentCraft?")
-    st.markdown("""
-    - **Inhalte generieren**: Erstellen Sie ansprechende Texte basierend auf Ihren Angaben wie Produktinformationen, Zielgruppe und Marketingzielen.
-    - **Anpassungsmöglichkeiten**: Bearbeiten und verfeinern Sie Inhalte direkt in der Anwendung.
-    - **Speicher- und Exportoptionen**: Speichern Sie Ergebnisse als Text- oder PDF-Dateien.
-    - **Benutzerfreundliche Oberfläche**: Eine intuitive UI mit Feedback-Funktion und Fehlerbehandlung.
-    - **Direktes Posten**: Veröffentlichen Sie Inhalte direkt auf Social-Media-Plattformen.
-    """)
+    # Modul 1: Content-Generierung und -Anpassung
+    st.markdown("Modul 1: Content-Generierung und -Anpassung")
+   
+    # Modul 2: Planung und Management
+    st.markdown("Modul 2: Planung und Management")
 
-    st.subheader("Zusatzfunktionen")
-    st.markdown("""
-    - Automatische Hashtag-Generierung
-    - Intelligenter Redaktionsplan mit Best-Post-Zeiten
-    - Tipps für Community-Management
-    - Post-Ideen-Generator
-    - Caption Creator mit Tone Adjuster
-    - Kreative Post-Erstellung
-    """)
-
+    # Modul 3: Veröffentlichung und Export
+    st.markdown("Modul 3: Veröffentlichung und Export")
+   
     # Unternehmensprofil erstellen oder bearbeiten
     if 'company_profile' not in st.session_state:
         st.warning("Bitte erstellen Sie zuerst ein Unternehmensprofil, bevor Sie andere Funktionen nutzen.")
@@ -108,34 +99,3 @@ def app():
                 }
                 st.success("Das Unternehmensprofil wurde erfolgreich aktualisiert!")
 
-    # Navigation zu Modulen nebeneinander
-        st.subheader("Navigieren Sie zu:")
-        col1, col2, col3, col4 = st.columns(4)
-
-        with col1:
-            if st.button("Modul 1"):
-                if 'company_profile' not in st.session_state:
-                    st.error("Bitte erstellen Sie zuerst ein Unternehmensprofil, bevor Sie diese Funktion nutzen.")
-                else:
-                    st.query_params.update(page="module_one")
-
-        with col2:
-            if st.button("Modul 2"):
-                if 'company_profile' not in st.session_state:
-                    st.error("Bitte erstellen Sie zuerst ein Unternehmensprofil, bevor Sie diese Funktion nutzen.")
-                else:
-                    st.query_params.update(page="module_two")
-
-        with col3:
-            if st.button("Modul 3"):
-                if 'company_profile' not in st.session_state:
-                    st.error("Bitte erstellen Sie zuerst ein Unternehmensprofil, bevor Sie diese Funktion nutzen.")
-                else:
-                    st.query_params.update(page="module_three")
-
-        with col4:
-            if st.button("Modul 4"):
-                if 'company_profile' not in st.session_state:
-                    st.error("Bitte erstellen Sie zuerst ein Unternehmensprofil, bevor Sie diese Funktion nutzen.")
-                else:
-                    st.query_params.update(page="module_four")

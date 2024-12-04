@@ -63,7 +63,7 @@ Dieses Projekt zielt darauf ab, eine generative KI-Anwendung zu entwickeln, die 
 Streamlit-App starten 🚀:
 
 1. Dieses GitHub-Repo in GitHub forken ⑂ (in der Option für eigene Entwicklung auswählen) oder als zip-Datei 🗂️ herunterladen
-2. Ordner `streamlit-intro` in VS Code öffnen.
+2. Ordner `genai` in VS Code öffnen.
 3. Auf die Datei `app.py` klicken.
 
 
@@ -76,7 +76,7 @@ Streamlit-App starten 🚀:
    conda activate genai
    ```
 
-6. Mit `cd` in das Verzeichnis `streamlit-intro` navigieren.
+6. Mit `cd` in das Verzeichnis `genai` navigieren.
 7. App starten:
 
    ```bash
