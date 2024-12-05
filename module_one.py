@@ -1,7 +1,7 @@
 import streamlit as st
 
 def app():
-    st.title("Content-Generierung und")
+    st.title("Content-Generierung")
     st.subheader("Willkommen in Modul 1.")
     st.markdown("""
     **Ziel:** Erstellung und Bearbeitung von Marketing-Inhalten.

@@ -23,7 +23,7 @@ else:
         "Startseite": main_page,
         "M1: Content-Generierung": module_one, # Optional: Nicht in die Sidebar aufnehmen
         "M2: Planung & Management": module_two,
-        "M3: Veröffentlichung & Export": module_three,
+        "M3: Speichern & Export": module_three,
         "Datenübersicht": summary_page,
         "Impressum": impressum_page,
     }

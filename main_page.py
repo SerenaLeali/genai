@@ -6,16 +6,26 @@ def app():
     st.title("ContentCraft")
     st.subheader("Das Marketingtool für Ihr Unternehmen")
 
-    st.subheader("Was bietet ContentCraft?")
-    # Modul 1: Content-Generierung und -Anpassung
-    st.markdown("Modul 1: Content-Generierung und -Anpassung")
-   
-    # Modul 2: Planung und Management
-    st.markdown("Modul 2: Planung und Management")
+    st.markdown("---")  # Horizontal line for visual separation
 
-    # Modul 3: Veröffentlichung und Export
-    st.markdown("Modul 3: Veröffentlichung und Export")
-   
+    st.title("Was bietet ContentCraft?")
+
+      # Create three columns for the modules
+    col1, col2, col3 = st.columns(3)
+
+
+    with col1:
+        st.markdown("<h3 style='text-align: center;'>Modul 1: Content-Generierung</h3>", unsafe_allow_html=True)
+        st.markdown("Content-Generierung<br>Erstellen Sie individuell zugeschnittene Inhalte, die Ihre Zielgruppe ansprechen.", unsafe_allow_html=True)
+
+    with col2:
+        st.markdown("<h3 style='text-align: center;'>Modul 2: Planung & Management</h3>", unsafe_allow_html=True)
+        st.markdown("Verwalten Sie Ihre Marketingkampagnen und planen Sie Inhalte im Voraus.", unsafe_allow_html=True)
+
+    with col3:
+        st.markdown("<h3 style='text-align: center;'>Modul 3: Speichern & Export</h3>", unsafe_allow_html=True)
+        st.markdown("Speichern Sie Ihre Inhalte für verschiedenen Plattformen und exportieren Sie im gewünschten Format.", unsafe_allow_html=True)
+    
     # Unternehmensprofil erstellen oder bearbeiten
     if 'company_profile' not in st.session_state:
         st.warning("Bitte erstellen Sie zuerst ein Unternehmensprofil, bevor Sie andere Funktionen nutzen.")
