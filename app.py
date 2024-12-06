@@ -7,7 +7,6 @@ import main_page
 import module_one
 import module_two
 import module_three
-import summary_page
 import impressum_page
 
 # Check if user is logged in
@@ -21,10 +20,9 @@ else:
     # Sidebar Navigation for Main Pages
     PAGES = {
         "Startseite": main_page,
-        "M1: Content-Generierung": module_one, # Optional: Nicht in die Sidebar aufnehmen
-        "M2: Planung & Management": module_two,
-        "M3: Speichern & Export": module_three,
-        "Datenübersicht": summary_page,
+        "**Content-Generierung**": module_one,
+        "**Planung & Management**": module_two,
+        "**Speicher & Export**": module_three,
         "Impressum": impressum_page,
     }
 

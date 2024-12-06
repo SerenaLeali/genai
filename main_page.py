@@ -15,16 +15,18 @@ def app():
 
 
     with col1:
-        st.markdown("<h3 style='text-align: center;'>Modul 1: Content-Generierung</h3>", unsafe_allow_html=True)
-        st.markdown("Content-Generierung<br>Erstellen Sie individuell zugeschnittene Inhalte, die Ihre Zielgruppe ansprechen.", unsafe_allow_html=True)
+        st.subheader("Content-Generierung")
+        st.markdown("Erstellen Sie individuell zugeschnittene Inhalte die Ihre Zielgruppe ansprechen.")
 
     with col2:
-        st.markdown("<h3 style='text-align: center;'>Modul 2: Planung & Management</h3>", unsafe_allow_html=True)
-        st.markdown("Verwalten Sie Ihre Marketingkampagnen und planen Sie Inhalte im Voraus.", unsafe_allow_html=True)
+        st.subheader("Planung & Management")
+        st.markdown("Verwalten Sie Ihre Marketingkampagnen und planen Sie Inhalte im Voraus.")
 
     with col3:
-        st.markdown("<h3 style='text-align: center;'>Modul 3: Speichern & Export</h3>", unsafe_allow_html=True)
-        st.markdown("Speichern Sie Ihre Inhalte für verschiedenen Plattformen und exportieren Sie im gewünschten Format.", unsafe_allow_html=True)
+        st.subheader("Speicher & Export")
+        st.markdown("Speichern Sie Ihre Inhalte für ihre Plattformen und exportieren Sie im gewünschten Format.")
+    
+    st.markdown("---")  # Horizontal line for visual separation
     
     # Unternehmensprofil erstellen oder bearbeiten
     if 'company_profile' not in st.session_state:
@@ -38,7 +40,6 @@ def app():
             campaign_goals = st.text_area("Zielsetzungen der Kampagne", placeholder="z. B. Erhöhung der Markenbekanntheit, Erschließung neuer Märkte")
             target_age = st.slider("Alter der Zielgruppe", 18, 65, (25, 45), step=1)
             target_audience = st.text_area("Hauptzielgruppen des Unternehmens", placeholder="z. B. junge Erwachsene, technikaffine Personen")
-            core_values = st.text_area("Kernwerte des Unternehmens", placeholder="z. B. Innovation, Nachhaltigkeit, Qualität")
             brand_personality = st.text_area("Markenpersönlichkeit und -werte", placeholder="z. B. kreativ, zuverlässig, innovativ")
 
             submit_button = st.form_submit_button("Unternehmensprofil erstellen")
@@ -56,8 +57,6 @@ def app():
                     missing_fields.append("Zielsetzungen der Kampagne")
                 if not target_audience.strip():
                     missing_fields.append("Hauptzielgruppen des Unternehmens")
-                if not core_values.strip():
-                    missing_fields.append("Kernwerte des Unternehmens")
                 if not brand_personality.strip():
                     missing_fields.append("Markenpersönlichkeit und -werte")
 
@@ -73,7 +72,6 @@ def app():
                         "campaign_goals": campaign_goals,
                         "target_age": target_age,
                         "target_audience": target_audience,
-                        "core_values": core_values,
                         "brand_personality": brand_personality,
                     }
                     st.success(f"Das Unternehmensprofil für '{company_name}' wurde erfolgreich erstellt!")
@@ -91,7 +89,6 @@ def app():
             campaign_goals = st.text_area("Zielsetzungen der Kampagne", value=profile["campaign_goals"])
             target_age = st.slider("Alter der Zielgruppe", 18, 65, profile["target_age"], step=1)
             target_audience = st.text_area("Hauptzielgruppen des Unternehmens", value=profile["target_audience"])
-            core_values = st.text_area("Kernwerte des Unternehmens", value=profile["core_values"])
             brand_personality = st.text_area("Markenpersönlichkeit und -werte", value=profile["brand_personality"])
 
             if st.button("Änderungen speichern"):
@@ -104,7 +101,6 @@ def app():
                     "campaign_goals": campaign_goals,
                     "target_age": target_age,
                     "target_audience": target_audience,
-                    "core_values": core_values,
                     "brand_personality": brand_personality,
                 }
                 st.success("Das Unternehmensprofil wurde erfolgreich aktualisiert!")

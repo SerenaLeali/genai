@@ -13,3 +13,5 @@ def app():
     - **Caption Creator**: Erstellt ansprechende Bildunterschriften, die individuell angepasst werden können.
     - **Automatische Hashtag-Generierung**: Generiert relevante und zielgerichtete Hashtags zur Optimierung der Beiträge.
     """)
+
+    st.markdown("---")
