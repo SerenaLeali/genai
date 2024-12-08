@@ -3,28 +3,31 @@ import streamlit as st
 
 def app():
     # Setting the title of the page
-    st.title('ContentCraft - Das Marketingtool für Ihr Unternehmen')
+    st.title("ContentCraft")
+    st.subheader("Das Marketingtool für Ihr Unternehmen")
 
-    # Beschreibung der Hauptfunktionen
-    st.subheader("Was bietet ContentCraft?")
-    st.markdown("""
-    - **Inhalte generieren**: Erstellen Sie ansprechende Texte basierend auf Ihren Angaben wie Produktinformationen, Zielgruppe und Marketingzielen.
-    - **Anpassungsmöglichkeiten**: Bearbeiten und verfeinern Sie Inhalte direkt in der Anwendung.
-    - **Speicher- und Exportoptionen**: Speichern Sie Ergebnisse als Text- oder PDF-Dateien.
-    - **Benutzerfreundliche Oberfläche**: Eine intuitive UI mit Feedback-Funktion und Fehlerbehandlung.
-    - **Direktes Posten**: Veröffentlichen Sie Inhalte direkt auf Social-Media-Plattformen.
-    """)
+    st.markdown("---")  # Horizontal line for visual separation
 
-    st.subheader("Zusatzfunktionen")
-    st.markdown("""
-    - Automatische Hashtag-Generierung
-    - Intelligenter Redaktionsplan mit Best-Post-Zeiten
-    - Tipps für Community-Management
-    - Post-Ideen-Generator
-    - Caption Creator mit Tone Adjuster
-    - Kreative Post-Erstellung
-    """)
+    st.title("Was bietet ContentCraft?")
 
+      # Create three columns for the modules
+    col1, col2, col3 = st.columns(3)
+
+
+    with col1:
+        st.subheader("Content-Generierung")
+        st.markdown("Erstellen Sie individuell zugeschnittene Inhalte die Ihre Zielgruppe ansprechen.")
+
+    with col2:
+        st.subheader("Planung & Management")
+        st.markdown("Verwalten Sie Ihre Marketingkampagnen und planen Sie Inhalte im Voraus.")
+
+    with col3:
+        st.subheader("Speicher & Export")
+        st.markdown("Speichern Sie Ihre Inhalte für ihre Plattformen und exportieren Sie im gewünschten Format.")
+    
+    st.markdown("---")  # Horizontal line for visual separation
+    
     # Unternehmensprofil erstellen oder bearbeiten
     if 'company_profile' not in st.session_state:
         st.warning("Bitte erstellen Sie zuerst ein Unternehmensprofil, bevor Sie andere Funktionen nutzen.")
@@ -37,7 +40,6 @@ def app():
             campaign_goals = st.text_area("Zielsetzungen der Kampagne", placeholder="z. B. Erhöhung der Markenbekanntheit, Erschließung neuer Märkte")
             target_age = st.slider("Alter der Zielgruppe", 18, 65, (25, 45), step=1)
             target_audience = st.text_area("Hauptzielgruppen des Unternehmens", placeholder="z. B. junge Erwachsene, technikaffine Personen")
-            core_values = st.text_area("Kernwerte des Unternehmens", placeholder="z. B. Innovation, Nachhaltigkeit, Qualität")
             brand_personality = st.text_area("Markenpersönlichkeit und -werte", placeholder="z. B. kreativ, zuverlässig, innovativ")
 
             submit_button = st.form_submit_button("Unternehmensprofil erstellen")
@@ -55,8 +57,6 @@ def app():
                     missing_fields.append("Zielsetzungen der Kampagne")
                 if not target_audience.strip():
                     missing_fields.append("Hauptzielgruppen des Unternehmens")
-                if not core_values.strip():
-                    missing_fields.append("Kernwerte des Unternehmens")
                 if not brand_personality.strip():
                     missing_fields.append("Markenpersönlichkeit und -werte")
 
@@ -72,7 +72,6 @@ def app():
                         "campaign_goals": campaign_goals,
                         "target_age": target_age,
                         "target_audience": target_audience,
-                        "core_values": core_values,
                         "brand_personality": brand_personality,
                     }
                     st.success(f"Das Unternehmensprofil für '{company_name}' wurde erfolgreich erstellt!")
@@ -90,7 +89,6 @@ def app():
             campaign_goals = st.text_area("Zielsetzungen der Kampagne", value=profile["campaign_goals"])
             target_age = st.slider("Alter der Zielgruppe", 18, 65, profile["target_age"], step=1)
             target_audience = st.text_area("Hauptzielgruppen des Unternehmens", value=profile["target_audience"])
-            core_values = st.text_area("Kernwerte des Unternehmens", value=profile["core_values"])
             brand_personality = st.text_area("Markenpersönlichkeit und -werte", value=profile["brand_personality"])
 
             if st.button("Änderungen speichern"):
@@ -103,39 +101,7 @@ def app():
                     "campaign_goals": campaign_goals,
                     "target_age": target_age,
                     "target_audience": target_audience,
-                    "core_values": core_values,
                     "brand_personality": brand_personality,
                 }
                 st.success("Das Unternehmensprofil wurde erfolgreich aktualisiert!")
 
-    # Navigation zu Modulen nebeneinander
-        st.subheader("Navigieren Sie zu:")
-        col1, col2, col3, col4 = st.columns(4)
-
-        with col1:
-            if st.button("Modul 1"):
-                if 'company_profile' not in st.session_state:
-                    st.error("Bitte erstellen Sie zuerst ein Unternehmensprofil, bevor Sie diese Funktion nutzen.")
-                else:
-                    st.query_params.update(page="module_one")
-
-        with col2:
-            if st.button("Modul 2"):
-                if 'company_profile' not in st.session_state:
-                    st.error("Bitte erstellen Sie zuerst ein Unternehmensprofil, bevor Sie diese Funktion nutzen.")
-                else:
-                    st.query_params.update(page="module_two")
-
-        with col3:
-            if st.button("Modul 3"):
-                if 'company_profile' not in st.session_state:
-                    st.error("Bitte erstellen Sie zuerst ein Unternehmensprofil, bevor Sie diese Funktion nutzen.")
-                else:
-                    st.query_params.update(page="module_three")
-
-        with col4:
-            if st.button("Modul 4"):
-                if 'company_profile' not in st.session_state:
-                    st.error("Bitte erstellen Sie zuerst ein Unternehmensprofil, bevor Sie diese Funktion nutzen.")
-                else:
-                    st.query_params.update(page="module_four")

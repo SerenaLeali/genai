@@ -7,8 +7,6 @@ import main_page
 import module_one
 import module_two
 import module_three
-import module_four
-import summary_page
 import impressum_page
 
 # Check if user is logged in
@@ -22,11 +20,9 @@ else:
     # Sidebar Navigation for Main Pages
     PAGES = {
         "Startseite": main_page,
-        "Modul 1": module_one, # Optional: Nicht in die Sidebar aufnehmen
-        "Modul 2": module_two,
-        "Modul 3": module_three,
-        "Modul 4": module_four,
-        "Datenübersicht": summary_page,
+        "**Content-Generierung**": module_one,
+        "**Planung & Management**": module_two,
+        "**Speicher & Export**": module_three,
         "Impressum": impressum_page,
     }
 
@@ -38,9 +34,3 @@ else:
         PAGES[selection].app()
     except KeyError:
         st.error(f"Die Seite '{selection}' konnte nicht geladen werden. Stellen Sie sicher, dass die entsprechende Datei existiert.")
-
-    # Logout Button
-    if st.sidebar.button("Abmelden"):
-        st.session_state['user_logged_in'] = False
-        st.session_state.pop('company_profile', None)
-        st.experimental_rerun()
