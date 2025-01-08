@@ -1,4 +1,4 @@
-import streamlit as st 
+import streamlit as st
 
 def login_page():
     st.title("Anmeldung")
@@ -21,4 +21,3 @@ def login_page():
                     st.error("Ungültige Anmeldedaten. Bitte versuchen Sie es erneut.")
     else:
         st.sidebar.success(f"Willkommen zurück, {st.session_state.get('username', 'Benutzer')}!")
-

@@ -1,18 +1,14 @@
-# Importing the Streamlit package
 import streamlit as st
 
 def app():
-    # Setting the title of the page
     st.title("ContentCraft")
     st.subheader("Das Marketingtool für Ihr Unternehmen")
 
-    st.markdown("---")  # Horizontal line for visual separation
+    st.markdown("---")
 
     st.title("Was bietet ContentCraft?")
 
-      # Create three columns for the modules
     col1, col2, col3 = st.columns(3)
-
 
     with col1:
         st.subheader("Content-Generierung")
@@ -26,8 +22,8 @@ def app():
         st.subheader("Speicher & Export")
         st.markdown("Speichern Sie Ihre Inhalte für ihre Plattformen und exportieren Sie im gewünschten Format.")
     
-    st.markdown("---")  # Horizontal line for visual separation
-    
+    st.markdown("---")
+
     # Unternehmensprofil erstellen oder bearbeiten
     if 'company_profile' not in st.session_state:
         st.warning("Bitte erstellen Sie zuerst ein Unternehmensprofil, bevor Sie andere Funktionen nutzen.")
@@ -79,7 +75,6 @@ def app():
         st.success(f"Willkommen, {st.session_state['company_profile']['company_name']}!")
         st.subheader("Unternehmensprofil")
         with st.expander("Details des Unternehmensprofils anzeigen oder bearbeiten"):
-            # Anzeigen des Profils
             profile = st.session_state['company_profile']
             company_name = st.text_input("Unternehmensname", value=profile["company_name"])
             industry = st.text_input("Branche", value=profile["industry"])
@@ -104,4 +99,3 @@ def app():
                     "brand_personality": brand_personality,
                 }
                 st.success("Das Unternehmensprofil wurde erfolgreich aktualisiert!")
-
