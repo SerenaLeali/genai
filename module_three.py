@@ -37,5 +37,3 @@ def app():
         )
     else:
         st.warning("Keine Daten gefunden. Bitte erstellen Sie ein Unternehmensprofil auf der Hauptseite.")
-
-    st.markdown("---")
