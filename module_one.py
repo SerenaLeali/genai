@@ -109,5 +109,3 @@ def app():
                 st.write("Humorvolle Version:")
                 st.write(adjusted_content)
                 st.info("Empfohlen für Twitter oder informelle Social-Media-Plattformen.")
-
-

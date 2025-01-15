@@ -1,12 +1,18 @@
 import streamlit as st
 import openai
+from dotenv import load_dotenv
+import os
 
-openai.api_key = "your-api-key-here"
+# Load the environment variables
+load_dotenv()
+
+# Set your OpenAI API key from the .env file
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 def generate_content(prompt: str) -> str:
     try:
         response = openai.Completion.create(
-            engine="text-davinci-003",  # oder "gpt-4"
+            engine="gpt-4",  # Updated to use the latest GPT version
             prompt=prompt,
             max_tokens=150,
             temperature=0.7
@@ -25,11 +31,12 @@ def app():
     - **Intelligenter Redaktionsplan**: Hilft bei der zeitlichen Planung von Inhalten und gibt automatisierte Empfehlungen für optimale Veröffentlichungszeiten.
     - **Tipps für Community-Management**: Bietet praktische Ratschläge für den Umgang mit Kommentaren, Reaktionen und den Aufbau einer aktiven Community.
     """)
-
+    
     st.markdown("---")
     # Intelligente Planerstellung und Community-Tipps
     st.subheader("Intelligenter Redaktionsplan")
     st.markdown("Planen Sie Ihre Inhalte mithilfe von automatisierten Vorschlägen für optimale Veröffentlichungszeiten, basierend auf Ihrer Zielgruppe und Branche.")
+    
     if 'company_profile' in st.session_state:
         company_profile = st.session_state['company_profile']
         prompt = f"Empfehle die besten Zeiten für Social-Media-Posts für ein Unternehmen im Bereich {company_profile['industry']} mit der Zielgruppe: {company_profile['target_audience']}."
