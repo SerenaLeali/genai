@@ -7,6 +7,8 @@ import main_page
 import module_one
 import module_two
 import module_three
+import abtest_module
+import feedback_module
 import impressum_page
 
 # Check if user is logged in
@@ -23,6 +25,8 @@ else:
         "**Content-Generierung**": module_one,
         "**Planung & Management**": module_two,
         "**Speicher & Export**": module_three,
+        "**A/B Tests**": abtest_module,
+        "**Feedback**": feedback_module,
         "Impressum": impressum_page,
     }
 

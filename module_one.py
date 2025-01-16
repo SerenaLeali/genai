@@ -1,5 +1,19 @@
 import streamlit as st
+import openai
 from gpt_integration import generate_content, generate_hashtags
+
+# Funktion zur Inhaltserstellung mit GPT-4 Chat-API
+def generate_content(prompt: str) -> str:
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4",  # Verwende das gpt-4 Modell
+            messages=[{"role": "user", "content": prompt}],  # Chat-Modell erwartet eine Liste von Nachrichten
+            max_tokens=1000,
+            temperature=0.7
+        )
+        return response.choices[0].message['content'].strip()  # Der generierte Text wird zurückgegeben
+    except Exception as e:
+        return f"Fehler bei der Generierung des Inhalts: {e}"
 
 def app():
     st.title("Content-Generierung")
@@ -42,7 +56,6 @@ def app():
         uploaded_file = st.file_uploader("Oder laden Sie ein Dokument hoch, das das Produkt beschreibt", type=["pdf", "txt"])
 
         if uploaded_file is not None:
-            # Dokument hochladen und Text extrahieren (beispielhaft)
             import PyPDF2
             pdf_reader = PyPDF2.PdfFileReader(uploaded_file)
             text = ""
@@ -62,7 +75,7 @@ def app():
                 Die Zielgruppe sind {st.session_state['company_profile']['target_audience']}.
                 Produktbeschreibung: {product_description}
                 """
-                generated_content = generate_content(content_prompt)
+                generated_content = generate_content(content_prompt)  # Verwende die ursprüngliche Funktion
                 
                 st.write("Generierter Inhalt:")
                 st.write(generated_content)
@@ -79,8 +92,7 @@ def app():
             st.subheader("Hashtags generieren")
             hashtags = generate_hashtags(st.session_state['generated_content'])
             st.write("Generierte Hashtags:")
-            # Zeige genau 5 Hashtags
-            hashtag_list = hashtags.split()[:5]
+            hashtag_list = hashtags.split()[:5]  # Zeigt nur die ersten 5 Hashtags an
             st.write(', '.join(hashtag_list))
 
         st.markdown("---")
