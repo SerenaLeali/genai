@@ -7,6 +7,7 @@ import main_page
 import module_one
 import module_two
 import module_three
+import module_four
 import abtest_module
 import feedback_module
 import impressum_page
@@ -25,6 +26,7 @@ else:
         "**Content-Generierung**": module_one,
         "**Planung & Management**": module_two,
         "**Speicher & Export**": module_three,
+        "**Grafik generieren & exportieren**": module_four,
         "**A/B Tests**": abtest_module,
         "**Feedback**": feedback_module,
         "Impressum": impressum_page,
