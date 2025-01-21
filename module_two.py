@@ -3,6 +3,8 @@ import openai
 from dotenv import load_dotenv
 import os
 
+
+
 # Lade die Umgebungsvariablen
 load_dotenv()
 
@@ -77,3 +79,11 @@ def app():
         st.write(community_tips)
 
     st.markdown("---")
+
+    #Für Seite 5 (Exportieren)
+if "optimal_times" in locals() and "community_tips" in locals():
+    st.session_state["module2_content"] = {
+        "optimal_times": optimal_times,  # Orari ottimali per i post
+        "community_tips": community_tips,  # Suggerimenti per la gestione della community
+    }
+    st.success("Piano editoriale e consigli per la community salvati con successo!")

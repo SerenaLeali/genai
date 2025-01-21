@@ -4,7 +4,7 @@ import io
 
 def generate_gradient(img_width, img_height, color1, color2):
     """
-    Genera uno sfondo con gradiente lineare.
+   Erzeugt einen Hintergrund mit einem linearen Farbverlauf.
     """
     gradient = Image.new("RGB", (img_width, img_height), color=color1)
     draw = ImageDraw.Draw(gradient)
@@ -17,89 +17,100 @@ def generate_gradient(img_width, img_height, color1, color2):
 
 def add_banner(draw, img_width, text, font, banner_height=100, banner_color="black"):
     """
-    Aggiunge un banner decorativo con il testo.
+    Fügt ein dekoratives Banner mit Text hinzu.
     """
-    # Disegna il rettangolo del banner
+    # Rechteck des Banners
     draw.rectangle([0, img_width - banner_height, img_width, img_width], fill=banner_color)
 
-    # Calcola la dimensione del testo usando textbbox
+    # Berechnung der Textgröße mit textbbox
     text_bbox = draw.textbbox((0, 0), text, font=font)
     text_width = text_bbox[2] - text_bbox[0]
     text_height = text_bbox[3] - text_bbox[1]
 
-    # Calcola le coordinate per posizionare il testo centrato nel banner
+    # Berechnet die Koordinaten für die Positionierung des Textes in der Mitte des Banners
     text_x = (img_width - text_width) // 2
     text_y = img_width - banner_height + (banner_height - text_height) // 2
 
-    # Disegna il testo centrato nel banner
+    # Zeichnet den Text zentriert in das Banner
     draw.text((text_x, text_y), text, fill="white", font=font)
 
-def create_instagram_post(text, bg_color, logo_path=None, gradient_enabled=False, banner_text=None, alignment="Centrato"):
+def create_instagram_post(text, text_size, bg_color, logo_path=None, gradient_enabled=False, banner_text=None, banner_text_size=60, alignment="Zentriert", banner_height=100, banner_color="black", logo_position="Links"):
     """
-    Crea un'immagine Instagram con testo allineato in base alla scelta dell'utente.
+    Erstellt ein Instagram-Bild mit Text, der nach den Wünschen des Nutzers ausgerichtet ist.
     """
     img_width, img_height = 1080, 1080
 
-    # Crea l'immagine con sfondo solido o gradiente
+    # Bild mit einfarbigem oder verlaufendem Hintergrund erstellen
     if gradient_enabled:
         img = generate_gradient(img_width, img_height, (30, 144, 255), (255, 140, 0))
     else:
         img = Image.new("RGB", (img_width, img_height), color=bg_color)
 
     draw = ImageDraw.Draw(img)
-    font_path = "/Library/Fonts/Supplemental/Arial.ttf"  # Percorso corretto per macOS
-    font = ImageFont.truetype(font_path, size=60)
+    font_path = "/Library/Fonts/Supplemental/Arial.ttf"  # Richtiger Pfad für macOS
+    font = ImageFont.truetype(font_path, size=text_size)
 
-    # Calcola la dimensione del testo
-    text_bbox = draw.textbbox((0, 0), text, font=font)
+    # Berechnet die Textgröße
+    text_bbox = draw.textbbox((0, 0), text, font=post_font)
     text_width = text_bbox[2] - text_bbox[0]
     text_height = text_bbox[3] - text_bbox[1]
 
-    # Determina la posizione in base all'allineamento
-    if alignment == "Centrato":
+    # Bestimmung der Position anhand der Ausrichtung
+    if alignment == "Zentriert":
         text_x = (img_width - text_width) // 2
         text_y = (img_height - text_height) // 2
-    elif alignment == "In alto":
+    elif alignment == "Oben":
         text_x = (img_width - text_width) // 2
-        text_y = 50  # Distanza dall'alto
-    elif alignment == "In basso":
+        text_y = 50  # Abstand vom oben
+    elif alignment == "Unten":
         text_x = (img_width - text_width) // 2
-        text_y = img_height - text_height - 50  # Distanza dal basso
+        text_y = img_height - text_height - 50  # Abstand vom unten
 
-    # Disegna il testo
-    draw.text((text_x, text_y), text, fill="white", font=font)
+    # Zeichnen von Textn  
+    draw.text((text_x, text_y), text, fill="white", font=font) 
 
-    # Aggiungi un banner decorativo, se richiesto
+    # Fügen Sie bei Bedarf ein dekoratives Banner hinzu
     if banner_text:
-        add_banner(draw, img_width, banner_text, font)
+        add_banner(draw, img_width, banner_text, font, banner_height=banner_height, banner_color=banner_color)
 
-    # Aggiungi un logo (opzionale)
+    # Ein Logo hinzufügen (optional)
     if logo_path:
         logo = Image.open(logo_path).resize((200, 200))
-        img.paste(logo, (50, 50), logo.convert("RGBA"))
+        if logo_position == "Links":  # **Logo links positioniert**
+            img.paste(logo, (50, 50), logo.convert("RGBA"))
+        elif logo_position == "Rechts":  # **Logo rechts positioniert**
+            img.paste(logo, (img_width - 250, 50), logo.convert("RGBA"))
 
     return img
 
 def app():
     """
-    Funzione principale della pagina Streamlit.
+    Hauptfunktion der Streamlit-Seite.
     """
-    st.title("Generatore di Grafiche per Instagram")
-    st.subheader("Personalizza la tua grafica con opzioni creative!")
+    st.title("Grafikgenerator für Instagram")
+    st.subheader("Gestalten Sie Ihre Grafiken mit kreativen Optionen!")
 
-    # Input utente
-    text = st.text_area("Testo del post", placeholder="Scrivi qui il tuo messaggio...")
-    bg_color = st.color_picker("Colore di sfondo", "#1E90FF")
-    logo = st.file_uploader("Carica il logo (opzionale)", type=["png", "jpg", "jpeg"])
-    gradient_enabled = st.checkbox("Attiva sfondo gradiente")
-    banner_text = st.text_input("Testo del banner (opzionale)")
+    # Benutzereingabe
+    text = st.text_area("Text des Beitrags", placeholder="Schreiben Sie hier Ihre Nachricht...")
+    text_size = st.slider("Dimensione del testo principale", min_value=20, max_value=120, value=60, step=5)  # Slider für BeitragsText
+    bg_color = st.color_picker("Hintergrundfarbe", "#1E90FF")
+    logo = st.file_uploader("Logo hochladen (optional)", type=["png", "jpg", "jpeg"])
+     # Nuovo controllo per la posizione del logo
+    logo_position = st.radio("Position des Logos:", ["Links", "Rechts"])  # **Radio button für Logo Position**
+    gradient_enabled = st.checkbox("Hintergrund mit Farbverlauf aktivieren")
+    banner_text = st.text_input("Bannertext (optional)")
 
-    # Opzione per scegliere l'allineamento
-    alignment = st.selectbox("Allineamento del testo:", ["Centrato", "In alto", "In basso"])
+# personalisierung von Banner und Text in Banner
+    text_size = st.slider("Dimensione del testo", min_value=20, max_value=120, value=60, step=5)
+    banner_height = st.slider("Altezza del banner", min_value=50, max_value=300, value=100, step=10)
+    banner_color = st.color_picker("Colore del banner", "#000000")
+    
+    # Option zur Auswahl der Ausrichtung
+    alignment = st.selectbox("Textausrichtung:", ["Zentriert", "Oben", "Unten"])
 
-    if st.button("Genera Post"):
+    if st.button("Beitrag generieren"):
         if not text.strip():
-            st.error("Inserisci del testo per generare il post!")
+            st.error("Geben Sie den Text ein, um den Beitrag zu erstellen!")
         else:
             img = create_instagram_post(
                 text=text,
@@ -108,20 +119,24 @@ def app():
                 gradient_enabled=gradient_enabled,
                 banner_text=banner_text,
                 alignment=alignment,
+                text_size=text_size,
+                banner_height=banner_height,
+                banner_color=banner_color,
+                logo_position=logo_position, 
             )
 
-            # Mostra l'immagine
-            st.image(img, caption="Anteprima del Post", use_column_width=True)
+            # Bild anzeigen
+            st.image(img, caption="Post-Vorschau", use_column_width=True)
 
-            # Salva l'immagine in memoria
+            # Bild im Speicher speichern
             buffer = io.BytesIO()
             img.save(buffer, format="PNG")
             buffer.seek(0)
 
-            # Pulsante per scaricare l'immagine
+            # Schaltfläche zum Herunterladen des Bildes
             st.download_button(
-                label="Scarica la grafica",
+                label="Grafik herunterladen",
                 data=buffer,
-                file_name="post_instagram_creativo.png",
+                file_name="post_instagram_kreativ.png",
                 mime="image/png",
             )
