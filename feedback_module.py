@@ -20,6 +20,9 @@ def app():
 
     st.markdown("---")
 
+    # Initialisiere feedback als leeres Dictionary
+    feedback = {"rating": "", "suggestion": None}
+
     # Feedback-Bereich
     st.subheader("Wie bewerten Sie die Anwendung?")
     col1, col2 = st.columns(2)

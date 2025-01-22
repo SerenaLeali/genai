@@ -47,7 +47,7 @@ def create_instagram_post(text, text_size, bg_color, logo_path=None, gradient_en
         img = Image.new("RGB", (img_width, img_height), color=bg_color)
 
     draw = ImageDraw.Draw(img)
-    font_path = "/Library/Fonts/Supplemental/Arial.ttf"  # Richtiger Pfad für macOS
+    font_path = "C:\\Windows\\Fonts\\arial.ttf"  # Verwende den Windows-Pfad für Arial
     font = ImageFont.truetype(font_path, size=text_size)
 
     # Berechnet die Textgröße
