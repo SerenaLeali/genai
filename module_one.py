@@ -121,12 +121,3 @@ def app():
                 st.write("Humorvolle Version:")
                 st.write(adjusted_content)
                 st.info("Empfohlen für Twitter oder informelle Social-Media-Plattformen.")
-
-#Für Seite 5 (Exportieren)                
-
-if st.button("Speichern"):
-    st.session_state["module1_content"] = {
-        "generated_content": edited_content,  # Contenuto modificato dall'utente
-        "hashtags": hashtag_list,  # Hashtag generati
-    }
-    st.success("Il contenuto è stato salvato con successo!")

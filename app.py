@@ -8,7 +8,6 @@ import module_one
 import module_two
 import module_three
 import module_four
-import module_five
 import abtest_module
 import feedback_module
 import impressum_page
@@ -30,7 +29,6 @@ else:
         "**Grafik generieren & exportieren**": module_four,
         "**A/B Tests**": abtest_module,
         "**Feedback**": feedback_module,
-        "**Speichern und Exportieren**": module_five,
         "Impressum": impressum_page,
     }
 
