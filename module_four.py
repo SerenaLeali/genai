@@ -51,7 +51,7 @@ def create_instagram_post(text, text_size, bg_color, logo_path=None, gradient_en
     font = ImageFont.truetype(font_path, size=text_size)
 
     # Berechnet die Textgröße
-    text_bbox = draw.textbbox((0, 0), text, font=post_font)
+    text_bbox = draw.textbbox((0, 0), text, font=font)
     text_width = text_bbox[2] - text_bbox[0]
     text_height = text_bbox[3] - text_bbox[1]
 
