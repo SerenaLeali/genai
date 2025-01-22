@@ -26,7 +26,7 @@ else:
         "**Content-Generierung**": module_one,
         "**Planung & Management**": module_two,
         "**Speicher & Export**": module_three,
-        "**Grafik generieren & exportieren**": module_four,
+        "**Grafik generieren**": module_four,
         "**A/B Tests**": abtest_module,
         "**Feedback**": feedback_module,
         "Impressum": impressum_page,

@@ -4,7 +4,7 @@ import io
 
 def generate_gradient(img_width, img_height, color1, color2):
     """
-   Erzeugt einen Hintergrund mit einem linearen Farbverlauf.
+    Erzeugt einen Hintergrund mit einem linearen Farbverlauf.
     """
     gradient = Image.new("RGB", (img_width, img_height), color=color1)
     draw = ImageDraw.Draw(gradient)
@@ -66,8 +66,8 @@ def create_instagram_post(text, text_size, bg_color, logo_path=None, gradient_en
         text_x = (img_width - text_width) // 2
         text_y = img_height - text_height - 50  # Abstand vom unten
 
-    # Zeichnen von Textn  
-    draw.text((text_x, text_y), text, fill="white", font=font) 
+    # Zeichnen von Text
+    draw.text((text_x, text_y), text, fill="white", font=font)
 
     # Fügen Sie bei Bedarf ein dekoratives Banner hinzu
     if banner_text:
@@ -92,18 +92,18 @@ def app():
 
     # Benutzereingabe
     text = st.text_area("Text des Beitrags", placeholder="Schreiben Sie hier Ihre Nachricht...")
-    text_size = st.slider("Dimensione del testo principale", min_value=20, max_value=120, value=60, step=5)  # Slider für BeitragsText
+    text_size = st.slider("Textgröße", min_value=20, max_value=120, value=60, step=5)  # Slider für BeitragsText
     bg_color = st.color_picker("Hintergrundfarbe", "#1E90FF")
     logo = st.file_uploader("Logo hochladen (optional)", type=["png", "jpg", "jpeg"])
-     # Nuovo controllo per la posizione del logo
-    logo_position = st.radio("Position des Logos:", ["Links", "Rechts"])  # **Radio button für Logo Position**
+    # Neue Kontrolle für die Position des Logos
+    logo_position = st.radio("Position des Logos:", ["Links", "Rechts"])  # **Radio-Button für Logo-Position**
     gradient_enabled = st.checkbox("Hintergrund mit Farbverlauf aktivieren")
     banner_text = st.text_input("Bannertext (optional)")
 
-# personalisierung von Banner und Text in Banner
-    text_size = st.slider("Dimensione del testo", min_value=20, max_value=120, value=60, step=5)
-    banner_height = st.slider("Altezza del banner", min_value=50, max_value=300, value=100, step=10)
-    banner_color = st.color_picker("Colore del banner", "#000000")
+    # Personalisierung von Banner und Text im Banner
+    text_size = st.slider("Textgröße im Banner", min_value=20, max_value=120, value=60, step=5)
+    banner_height = st.slider("Bannerhöhe", min_value=50, max_value=300, value=100, step=10)
+    banner_color = st.color_picker("Bannerfarbe", "#000000")
     
     # Option zur Auswahl der Ausrichtung
     alignment = st.selectbox("Textausrichtung:", ["Zentriert", "Oben", "Unten"])
