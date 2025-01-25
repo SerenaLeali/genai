@@ -1,10 +1,14 @@
 # ContentCraft - Generative AI Application for Marketing
 ## Overview
 ContentCraft ist eine innovative KI-Anwendung, die speziell für Marketing- und Sales-Teams entwickelt wurde. Mit der fortschrittlichen GPT-Technologie hilft ContentCraft Unternehmen dabei, personalisierte und kreative Inhalte für Instagram-Beiträge zu erstellen. Die App ermöglicht es, Unternehmensprofile zu hinterlegen und bietet sechs leistungsstarke Module, die Marketingprozesse optimieren und kreative Ideen in die Tat umsetzen.
+
 ---
+
 ## Projektbeschreibung und Ziele
 ContentCraft wurde mit dem Ziel entwickelt, Marketing- und Sales-Teams bei der Erstellung und Organisation von hochwertigen Inhalten für Social Media zu unterstützen. Durch die Nutzung von GPT-Technologie bietet die App maßgeschneiderte Inhalte, die auf Unternehmensinformationen und spezifische Ziele abgestimmt sind. Mit ContentCraft können Sie die Content-Erstellung, Planung, Speicherung, grafische Gestaltung und A/B-Test-Vorschläge effizient verwalten – alles in einer intuitiven Plattform.
+
 ---
+
 ## Wie es funktioniert
 1. **Unternehmensprofil hinterlegen:** Geben Sie grundlegende Informationen über Ihr Unternehmen ein, um personalisierte Inhalte zu ermöglichen.
 2. **Module nutzen:** Wählen Sie eines der sechs Module, um Inhalte zu erstellen, zu planen, zu speichern, zu testen, grafisch aufzubereiten oder Feedback zu sammeln.
@@ -18,19 +22,21 @@ ContentCraft richtet sich an:
 ---
  
 ## Unternehmensprofil erstellen  
-**Bevor Sie die Module nutzen können, müssen Sie ein Unternehmensprofil erstellen.
-**Dieses Profil bildet die Grundlage für alle generierten Inhalte, die perfekt auf Ihre Marke abgestimmt sind. 
+Bevor Sie die Module nutzen können, müssen Sie ein Unternehmensprofil erstellen.
+Dieses Profil bildet die Grundlage für alle generierten Inhalte, die perfekt auf Ihre Marke abgestimmt sind. 
 ### Eingabefelder für das Unternehmensprofil: 
 **Unternehmensname:** Geben Sie den Namen Ihres Unternehmens ein. 
 **Branche:** Wählen oder beschreiben Sie die Branche, in der Ihr Unternehmen tätig ist. 
-**Unternehmensgröße:**Klassifizieren Sie Ihr Unternehmen (z. B. Kleinunternehmen, mittelständisches Unternehmen). 
+**Unternehmensgröße:** Klassifizieren Sie Ihr Unternehmen (z. B. Kleinunternehmen, mittelständisches Unternehmen). 
 **Beschreibung des Unternehmens:** Beschreiben Sie Ihr Unternehmen und seine Aktivitäten in wenigen Sätzen. 
 **USPs (Unique Selling Points):** Listen Sie die Alleinstellungsmerkmale auf, die Ihr Unternehmen von der Konkurrenz unterscheiden. 
 **Zielsetzungen der Kampagne:** Definieren Sie Ihre Hauptziele, z. B. Markenbekanntheit steigern, Community aufbauen oder Verkäufe fördern. 
 **Alter der Zielgruppe:** Geben Sie die Altersgruppe Ihrer Zielkunden an (z. B. 18-65 Jahre). 
 **Hauptzielgruppen des Unternehmens:** Beschreiben Sie die Hauptzielgruppen, die Sie mit Ihren Kampagnen ansprechen möchten. 
 **Markenpersönlichkeit und -werte:** Beschreiben Sie die Persönlichkeit und die Werte Ihrer Marke (z. B. innovativ, zuverlässig, kreativ). Durch diese Informationen kann ContentCraft individuelle und relevante Inhalte erstellen, die optimal auf Ihre Marke und Zielgruppe zugeschnitten sind.
+
 ---
+
 ## Module und Funktionen
 
 ### **Modul 1: Content-Generierung**
@@ -72,7 +78,9 @@ ContentCraft richtet sich an:
 - **Feedback-Formular:** Bieten Sie Nutzern eine einfache Möglichkeit, ihre Meinungen und Vorschläge zu teilen.
 - **Feedback-Management:** Verwalten Sie eingegangene Kommentare und bewerten Sie deren Relevanz für zukünftige Updates.
 - **Verbesserungsvorschläge:** Nutzen Sie die gesammelten Rückmeldungen, um die App und ihre Funktionen weiterzuentwickeln.
+
 ---
+
 ## Installation und Ausführung
 
 ### Voraussetzungen
@@ -81,30 +89,30 @@ ContentCraft richtet sich an:
 - OpenAI API-Schlüssel (erforderlich)
 - [Optional] Anaconda für eine einfachere Umgebungsverwaltung (empfohlen)
 ---
-###Installation
-###Allgemeine Anleitung
+### Installation
+### Allgemeine Anleitung
 1. **Repository klonen**:
    ```bash
    git clone https://github.com/<your-username>/genai.git
    cd genai
 
 2. **Virtuelle Python-Umgebung erstellen. 
-**Ohne Anaconda**
-```bash
-python -m venv venv
-source venv/bin/activate  # Für Windows: venv\Scripts\activate
-**Mit Anaconda (Empfohlen)**
-```bash
-conda create --name genai python=3.8
-conda activate genai
+   **Ohne Anaconda**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Für Windows: venv\Scripts\activate
+   **Mit Anaconda (Empfohlen)**
+   ```bash
+   conda create --name genai python=3.8
+   conda activate genai
 
 3. **Abhängigkeiten installieren**
-```bash
-pip install -r requirements.txt
+   ```bash
+   pip install -r requirements.txt
 
 4. **API-Schlüssel konfigurieren**
-Erstellen Sie im Hauptverzeichnis eine .env-Datei und fügen Sie Ihren OpenAI-API-Schlüssel hinzu:
-OPENAI_API_KEY=your_api_key
+   Erstellen Sie im Hauptverzeichnis eine .env-Datei und fügen Sie Ihren OpenAI-API-Schlüssel hinzu:
+   OPENAI_API_KEY=your_api_key
 
 5. **Anaconda-Umgebung aktivieren und Anwendung Starten**
 
@@ -135,17 +143,19 @@ OPENAI_API_KEY=your_api_key
 
 ### Modul 1 
 **Verwendeter Promt**
- Few-Shot Prompting
-Verwendung:
+
+**Methode - Few-Shot Prompting:**
+**Verwendung:**
 Für kreative Aufgaben wie Werbetexte oder Community-Management-Tipps.
 Bei der Generierung von Marketingtexten basierend auf Zielgruppe und Ziel.
-Gründe:
+**Gründe:**
 Liefert dem Modell Beispiele, um Stil und Struktur zu verstehen.
 Fördert konsistente und qualitativ hochwertige Ergebnisse.
 Besonders hilfreich, wenn Präzision und Kontext wichtig sind.
 
 **Promt**
 Erstelle einen überzeugenden Marketingtext für ein Unternehmen basierend auf Branche, Zielgruppe, Kampagnenziel und Produktbeschreibung. Hier sind Beispiele:
+
 **Beispiel 1:**
 - **Branche:**  Technologie
 - **Kampagnenziel:** Bekanntheit für ein neues Laptop-Modell schaffen
@@ -153,6 +163,7 @@ Erstelle einen überzeugenden Marketingtext für ein Unternehmen basierend auf B
 - **Produktbeschreibung:** Ein ultradünner Laptop mit einem leistungsstarken Prozessor und einer Akkulaufzeit von 12 Stunden.
 - **Marketingtext:**
 "Erlebe grenzenlose Produktivität mit unserem neuen ultradünnen Laptop! Ob unterwegs, im Büro oder beim Gaming – mit seiner 12-stündigen Akkulaufzeit und dem leistungsstarken Prozessor bleibt er immer an deiner Seite. Jetzt entdecken und durchstarten!"
+
 **Beispiel 2:**
 - **Branche:** Lebensmittel
 - **Kampagnenziel:** Förderung eines neuen Bio-Müslis
@@ -160,6 +171,7 @@ Erstelle einen überzeugenden Marketingtext für ein Unternehmen basierend auf B
 - **Produktbeschreibung:** Eine gesunde und schmackhafte Müslimischung aus 100 % biologischen Zutaten.
 - **Marketingtext:**
 "Starten Sie gesund in den Tag mit unserem neuen Bio-Müsli! 100 % natürliche Zutaten, voller Geschmack und perfekt für die ganze Familie. Entdecken Sie den Unterschied – jetzt ausprobieren!"
+
 **Beispiel 3:**
 - **Branche:** Mode
 - **Kampagnenziel:** Verkaufsförderung für nachhaltige Sneaker
@@ -167,7 +179,8 @@ Erstelle einen überzeugenden Marketingtext für ein Unternehmen basierend auf B
 - **Produktbeschreibung:** Handgefertigte Sneaker aus recycelten Materialien mit modernem Design.
 - **Marketingtext:**
 "Nachhaltigkeit trifft Style! Unsere handgefertigten Sneaker aus recycelten Materialien sind nicht nur gut für die Umwelt, sondern auch ein Statement für dein modernes Leben. Zeig der Welt, dass du Verantwortung mit Stil verbindest – jetzt erhältlich!"
-Deine Aufgabe:
+
+**Deine Aufgabe:**
 Branche: {st.session_state['company_profile']['industry']}
 Kampagnenziel: {st.session_state['company_profile']['campaign_goals']}
 Zielgruppe: {st.session_state['company_profile']['target_audience']}
@@ -179,16 +192,18 @@ Marketingtext:
 ### Modul 2 
 **Verwendeter Promt**
 
-Few-Shot Prompting:
-    Verwendung:
+**Methode - Few-Shot Prompting:**
+**Verwendung:**
 Für kreative Aufgaben wie Werbetexte oder Community-Management-Tipps.
 Bei der Generierung von Marketingtexten basierend auf Zielgruppe und Ziel.
-Gründe:
+**Gründe:**
 Liefert dem Modell Beispiele, um Stil und Struktur zu verstehen.
 Fördert konsistente und qualitativ hochwertige Ergebnisse.
 Besonders hilfreich, wenn Präzision und Kontext wichtig sind.
+
 **Promt**
 Empfehle die besten Zeiten für Social-Media-Posts für ein Unternehmen basierend auf Branche und Zielgruppe. Hier sind Beispiele:
+
 **Beispiel 1:**
 - **Branche:** Technologie
 - **Zielgruppe:** Junge Erwachsene
@@ -196,6 +211,7 @@ Empfehle die besten Zeiten für Social-Media-Posts für ein Unternehmen basieren
 1. Montag bis Freitag: 12:00–13:00 Uhr (Mittagspause) und 18:00–20:00 Uhr (nach Feierabend).
 2. Wochenende: 10:00–12:00 Uhr (spätes Frühstück) und 20:00–22:00 Uhr (Freizeit).
 3. Vermeide frühe Morgenstunden, da die Zielgruppe spät aktiv ist.
+   
 **Beispiel 2:**
 - **Branche:** Mode
 - **Zielgruppe:** Millennials
@@ -203,6 +219,7 @@ Empfehle die besten Zeiten für Social-Media-Posts für ein Unternehmen basieren
 1. Dienstag, Donnerstag und Samstag: 11:00–13:00 Uhr (Shopping-Inspiration) und 19:00–21:00 Uhr (Freizeit).
 2. Besonders hohe Interaktionsraten sind am Sonntag zwischen 17:00–19:00 Uhr zu erwarten.
 3. Experimentiere mit spontanen Postings zu Trendthemen während der Woche.
+   
 **Beispiel 3:**
 - **Branche:** Lebensmittel
 - **Zielgruppe:** Familien
@@ -213,7 +230,9 @@ Empfehle die besten Zeiten für Social-Media-Posts für ein Unternehmen basieren
 Deine Aufgabe:
 Empfehle die besten Zeiten für Social-Media-Posts für ein Unternehmen im Bereich {company_profile['industry']} mit der Zielgruppe: {company_profile['target_audience']}.
 Berücksichtige dabei branchenübliche Verhaltensmuster und die Vorlieben der Zielgruppe.
-—--------------------
+
+---
+
 Gib praktische Tipps für das Community-Management eines Unternehmens basierend auf der Branche und Zielgruppe. Hier sind Beispiele:
 **Beispiel 1:**
 - **Branche:** Technologie
@@ -222,13 +241,15 @@ Gib praktische Tipps für das Community-Management eines Unternehmens basierend 
 1. Reagiere schnell auf technische Fragen, indem du einen freundlichen und kompetenten Ton verwendest.
 2. Nutze interaktive Inhalte wie Umfragen oder Quiz, um die Zielgruppe aktiv einzubinden.
 3. Belohne treue Community-Mitglieder mit exklusiven Einblicken in neue Technologien oder Produkte.
--**Beispiel 2:**
+   
+**Beispiel 2:**
 - **Branche:** Mode
 - **Zielgruppe:** Millennials
 - **Tipps:**
 1. Teile User-Generated Content (z. B. Fotos der Kunden mit deinen Produkten) und lobe sie öffentlich.
 2. Antworte auf Kommentare mit einer persönlichen Note, um Nähe zur Marke zu schaffen.
 3. Veranstalte Gewinnspiele oder Challenges, die die Kreativität der Community fördern.
+
 **Beispiel 3:**
 -**Branche:** Lebensmittel
 -**Zielgruppe:** Familien
@@ -242,27 +263,30 @@ Berücksichtige dabei, wie man effektiv mit Kommentaren und Reaktionen umgehen k
 
 ---
 
-###Modul 5  
+### Modul 5  
 **Verwendeter Promt**
 
-Few shot prompting in Kombination mit Comparative Prompting
-1. Few-Shot Prompting
-Verwendung:
+Methode - Few shot prompting in Kombination mit Comparative Prompting:
+**1. Few-Shot Prompting**
+**Verwendung:**
 Für kreative Aufgaben wie Werbetexte oder Community-Management-Tipps.
 Bei der Generierung von Marketingtexten basierend auf Zielgruppe und Ziel.
-Gründe:
+**Gründe:**
 Liefert dem Modell Beispiele, um Stil und Struktur zu verstehen.
 Fördert konsistente und qualitativ hochwertige Ergebnisse.
 Besonders hilfreich, wenn Präzision und Kontext wichtig sind.
-2. Comparative Prompting
-Verwendung:
+
+**2. Comparative Prompting**
+**Verwendung:**
 Bei der Erstellung mehrerer Varianten eines Werbetextes.
-Gründe:
+**Gründe:**
 Hilft, unterschiedliche Ansätze für Zielgruppen oder Plattformen zu generieren.
 Erleichtert die Vergleichbarkeit von Ideen und Textvarianten.
 Fördert Vielfalt in den Antworten.
+
 **Promt**
 Erstelle zwei oder mehr Varianten eines Werbetextes für ein Produkt oder eine Dienstleistung basierend auf Zielgruppe, Plattform und Kampagnenziel. Jede Variante sollte sich auf unterschiedliche Zielgruppen oder Ansätze konzentrieren. Hier sind Beispiele:
+
 **Beispiel 1:**
 - **Produkt/Dienstleistung:** Nachhaltige Sneaker
 - **Ziel:**  Verkaufsförderung
@@ -272,6 +296,7 @@ Erstelle zwei oder mehr Varianten eines Werbetextes für ein Produkt oder eine D
 "Zeig der Welt deinen Style mit Verantwortung! Unsere nachhaltigen Sneaker verbinden modernes Design mit recycelten Materialien. Perfekt für alle, die Stil und Umweltbewusstsein vereinen wollen. Jetzt auf Instagram entdecken!"
 - **Variante 2:**
 "Nachhaltigkeit trifft Komfort: Unsere Sneaker aus recycelten Materialien sind nicht nur gut für die Umwelt, sondern auch für dich. Erlebe den Unterschied – jetzt erhältlich!"
+
 **Beispiel 2:**
 - **Produkt/Dienstleistung:** Bio-Müsli
 - **Ziel:** Bekanntheit steigern
@@ -302,4 +327,3 @@ Zielgruppe: {target_audience}, Plattform: {platform}.
 - **Benutzerzentriertes Design:** Praktische Erfahrung in der Gestaltung einer benutzerfreundlichen und flexiblen Plattform, die auf die Bedürfnisse der Endnutzer abgestimmt ist.  
 - **Ethische Kompetenz:** Sensibilisierung für die Bedeutung ethischer Aspekte bei der Entwicklung von KI-Anwendungen und die Balance zwischen Innovation und Verantwortung.  
 - **Interdisziplinäre Zusammenarbeit:** Anwendung von Wissen aus den Bereichen Marketing, Technologie und Design für die Entwicklung einer umfassenden Lösung. 
----
