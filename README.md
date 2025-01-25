@@ -1,9 +1,9 @@
 # ContentCraft - Generative KI App für Marketingzwecke
 
 ## Erstellt von:
-**Emilia Maurer**
-**Mette-Madlene Krämer**
-**Serena Leali**
+**Emilia Maurer**,
+**Mette-Madlene Krämer**,
+**Serena Leali**,
 **Viviann Igbokwe**
 
 ## Overview
