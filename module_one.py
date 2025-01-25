@@ -19,11 +19,10 @@ def app():
     st.title("Content-Generierung")
     st.subheader("Willkommen in Modul 1.")
     st.markdown("""
-    **Ziel:** Die Erstellung von individuell zugeschnittenen Inhalten, die Ihre Zielgruppe ansprechen.
+    **Ziel:** Die Erstellung von individuell zugeschnittenen Marketingtexten, die Ihre Zielgruppe ansprechen.
 
     **Funktionen:**
     - **Kreative Inhalte**: Generieren von maßgeschneiderten Marketingtexten basierend auf den Unternehmensinformationen und spezifischen Zielen.
-    - **Hashtag-Generierung**: Automatisches Erstellen von relevanten Hashtags für Social Media-Posts.
     - **Tone-Adjuster**: Passen Sie den Ton der generierten Inhalte an (z. B. humorvoll, informativ, formell).
     """)
     st.markdown("---")

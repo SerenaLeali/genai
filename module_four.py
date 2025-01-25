@@ -87,7 +87,7 @@ def app():
     """
     Hauptfunktion der Streamlit-Seite.
     """
-    st.title("Grafikgenerator für Instagram")
+    st.title("Grafikgenerator für Social Media")
     st.subheader("Gestalten Sie Ihre Grafiken mit kreativen Optionen!")
 
     # Benutzereingabe

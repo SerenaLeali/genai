@@ -8,11 +8,12 @@ def app():
 
     st.title("Was bietet ContentCraft?")
 
+    # Erste Reihe mit den ersten drei Spalten
     col1, col2, col3 = st.columns(3)
 
     with col1:
         st.subheader("Content-Generierung")
-        st.markdown("Erstellen Sie individuell zugeschnittene Inhalte die Ihre Zielgruppe ansprechen.")
+        st.markdown("Erstellen Sie individuell zugeschnittene Marketingtexte die Ihre Zielgruppe ansprechen.")
 
     with col2:
         st.subheader("Planung & Management")
@@ -20,7 +21,22 @@ def app():
 
     with col3:
         st.subheader("Speicher & Export")
-        st.markdown("Speichern Sie Ihre Inhalte für ihre Plattformen und exportieren Sie im gewünschten Format.")
+        st.markdown("Speichern Sie Ihre Unternehmensprofil und exportieren Sie es zur schnellen Wiederverwendung.")
+
+    # Zweite Reihe mit den letzten drei Spalten
+    col4, col5, col6 = st.columns(3)
+
+    with col4:
+        st.subheader("Grafikgenerator")
+        st.markdown("Gestalten Sie Grafiken mit verschiedenen kreativen Optionen für Social Media.")
+
+    with col5:
+        st.subheader("A/B-Test-Vorschläge")
+        st.markdown("Erstellen Sie verschiedene Varianten eines Werbetextes, einer Überschrift oder einer Kampagne.")
+
+    with col6:
+        st.subheader("Feedback")
+        st.markdown("Bewerten Sie unsere Anwendung.")
     
     st.markdown("---")
 

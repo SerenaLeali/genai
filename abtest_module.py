@@ -21,7 +21,7 @@ def app():
     st.subheader("Erstellen Sie Varianten für Ihre Marketingstrategie")
 
     st.markdown("""
-    *Beschreibung:*
+    *Funktion:*
     Erstellen Sie verschiedene Varianten eines Werbetextes, einer Überschrift oder einer Kampagne für A/B-Tests.
     Nutzen Sie GPT, um unterschiedliche Zielgruppen oder Ansätze anzusprechen.
     """)

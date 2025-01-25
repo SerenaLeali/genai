@@ -4,10 +4,9 @@ def app():
     st.title("Speicher & Export")
     st.subheader("Willkommen in Modul 3.")
     st.markdown("""
-    **Ziel:** Vereinfachung der Bereitstellung und Veröffentlichung von Inhalten.
 
     **Funktionen:**
-    - **Speicher- und Exportoptionen**: Ermöglicht die Speicherung von Ergebnissen in Text- oder PDF-Formaten.
+    - **Speicher- und Exportoptionen**: Ermöglicht die Speicherung des Unternehmensprofils in Text- oder PDF-Format.
     """)
 
     st.markdown("---")
