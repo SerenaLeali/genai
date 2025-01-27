@@ -1,10 +1,16 @@
 # ContentCraft - Generative KI App für Marketingzwecke
 
 ## Erstellt von:
-**Emilia Maurer, Matrikelnr.: 45678**
-**Mette-Madlene Krämer, Matrikelnr.: 45556**
-**Serena Leali, Matrikelnr.: 46050**
+**Emilia Maurer, Matrikelnr.: 45678**  
+**Mette-Madlene Krämer, Matrikelnr.: 45556**  
+**Serena Leali, Matrikelnr.: 46050**  
 **Viviann Igbokwe, Matrikelnr.: 44328**
+
+### Streamlit App Login:  
+**Benutzername:** admin  
+**Passwort:** password
+
+---
 
 ## Overview
 ContentCraft ist eine innovative KI-Anwendung, die speziell für Marketing- und Sales-Teams entwickelt wurde. Mit der fortschrittlichen GPT-Technologie hilft ContentCraft Unternehmen dabei, personalisierte und kreative Inhalte für Instagram-Beiträge zu erstellen. Die App ermöglicht es, Unternehmensprofile zu hinterlegen und bietet sechs leistungsstarke Module, die Marketingprozesse optimieren und kreative Ideen in die Tat umsetzen.
